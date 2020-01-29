@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class EmployeeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  # Relationship matchers...
+  should have_many(:assignments)
+  should have_many(:stores).through(:assignments)
+
+  
 end

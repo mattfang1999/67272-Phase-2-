@@ -2,7 +2,7 @@ class Employee < ApplicationRecord
 
 	# Relationships
   	# -----------------------------
-  	belongs_to :store
+  	has_many :stores, through: :assignments
   	has_many :assignments
   	
 	
