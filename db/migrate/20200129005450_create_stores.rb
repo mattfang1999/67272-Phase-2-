@@ -9,7 +9,7 @@ class CreateStores < ActiveRecord::Migration[5.2]
       t.string :phone
       t.boolean :active
 
-      t.timestamps
+      #t.timestamps
     end
   end
 end

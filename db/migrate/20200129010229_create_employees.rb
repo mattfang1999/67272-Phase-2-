@@ -10,7 +10,7 @@ class CreateEmployees < ActiveRecord::Migration[5.2]
       t.string :role
       t.boolean :active
 
-      t.timestamps
+      #t.timestamps
     end
   end
 end
