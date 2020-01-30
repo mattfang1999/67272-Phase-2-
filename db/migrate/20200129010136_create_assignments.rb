@@ -5,7 +5,7 @@ class CreateAssignments < ActiveRecord::Migration[5.2]
       t.references :store, foreign_key: true
       t.references :employee, foreign_key: true
       t.date :start_date
-      t.date :end_date, default: => nil 
+      t.date :end_date 
       
       #t.timestamps
     end

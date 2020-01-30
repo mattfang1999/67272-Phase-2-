@@ -31,7 +31,8 @@ gem 'jbuilder', '~> 2.5'
 
 #Relationship Testing
 gem 'simplecov', '0.15.1'
-gem 'shoulda', '3.5.0'
+gem 'shoulda'
+gem 'shoulda-matchers'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

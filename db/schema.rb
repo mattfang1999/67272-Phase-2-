@@ -13,10 +13,12 @@
 ActiveRecord::Schema.define(version: 2020_01_29_010229) do
 
   create_table "assignments", force: :cascade do |t|
+    t.integer "store_id"
+    t.integer "employee_id"
     t.date "start_date"
     t.date "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_assignments_on_employee_id"
+    t.index ["store_id"], name: "index_assignments_on_store_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -26,9 +28,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_010229) do
     t.date "date_of_birth"
     t.string "phone"
     t.string "role"
-    t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean "active", default: true
   end
 
   create_table "stores", force: :cascade do |t|
@@ -38,9 +38,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_010229) do
     t.string "state"
     t.string "zip"
     t.string "phone"
-    t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean "active", default: true
   end
 
 end
