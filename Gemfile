@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'simplecov', '0.15.1'
 gem 'shoulda'
 gem 'shoulda-matchers'
+gem 'factory_bot'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
