@@ -7,6 +7,6 @@ module Contexts
   # explicitly include all sets of contexts used for testing 
   include Contexts::Stores 
   include Contexts::Employees 
-  #include Contexts::Assignments 
+  include Contexts::Assignments 
   
 end

@@ -1,6 +1,31 @@
 {
   "MiniTest": {
     "coverage": {
+      "/Users/matthewfang1999/Documents/CMU/Spring20/67-272/creamery/app/models/store.rb": [
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/matthewfang1999/Documents/CMU/Spring20/67-272/creamery/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/matthewfang1999/Documents/CMU/Spring20/67-272/creamery/app/models/assignment.rb": [
         1,
         null,
@@ -11,24 +36,7 @@
         null,
         null
       ],
-      "/Users/matthewfang1999/Documents/CMU/Spring20/67-272/creamery/app/models/application_record.rb": [
-        1,
-        1,
-        null
-      ],
       "/Users/matthewfang1999/Documents/CMU/Spring20/67-272/creamery/app/models/employee.rb": [
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/matthewfang1999/Documents/CMU/Spring20/67-272/creamery/app/models/store.rb": [
         1,
         null,
         null,
@@ -311,6 +319,6 @@
         0
       ]
     },
-    "timestamp": 1580349065
+    "timestamp": 1580419238
   }
 }
