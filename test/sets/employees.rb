@@ -4,7 +4,7 @@ module Contexts
     def create_employees
       @matthew = FactoryBot.create(:employee)
       @chen = FactoryBot.create(:employee, first_name: "Chen", last_name: "Zhang", role: "manager")
-      @evan = FactoryBot.create(:employee, first_name: "Evan", active: false)
+      @evan = FactoryBot.create(:employee, first_name: "Evan", active: false, role: 'employee')
 
     end
 

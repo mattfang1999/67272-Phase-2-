@@ -11,7 +11,11 @@ class Store < ApplicationRecord
   	# -----------------------------
   	# list owners in alphabetical order
   	scope :alphabetical, -> { order('name') }
-  	
+  	scope :active, -> { where(active: true) }
+  	scope :inactive, -> { where.not(active: true)}
+  	#scope :inactive, -> { where.(inactive: true)}
+  
+
 
   	
 

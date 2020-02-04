@@ -1,7 +1,7 @@
 {
   "MiniTest": {
     "coverage": {
-      "/Users/matthewfang1999/Documents/CMU/Spring20/67-272/creamery/app/models/store.rb": [
+      "/Users/matthewfang1999/Documents/CMU/Spring20/67-272/creamery/app/models/employee.rb": [
         1,
         null,
         null,
@@ -11,11 +11,10 @@
         null,
         null,
         null,
-        null,
-        null,
-        null,
-        2,
-        null,
+        5,
+        6,
+        1,
+        1,
         null,
         null,
         null,
@@ -36,13 +35,25 @@
         null,
         null
       ],
-      "/Users/matthewfang1999/Documents/CMU/Spring20/67-272/creamery/app/models/employee.rb": [
+      "/Users/matthewfang1999/Documents/CMU/Spring20/67-272/creamery/app/models/store.rb": [
         1,
         null,
         null,
         null,
         1,
         1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -319,6 +330,6 @@
         0
       ]
     },
-    "timestamp": 1580419238
+    "timestamp": 1580847465
   }
 }
