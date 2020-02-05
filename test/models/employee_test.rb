@@ -35,7 +35,7 @@ class EmployeeTest < ActiveSupport::TestCase
 		@matthew.active = false 
 		@matthew.save
 		assert_equal 1, Employee.active.size 
-		assert_equal ['Chen'], Employee.active.alphabetical.map{|e| e.first_name}.sort 
+		assert_equal ['Chen'], Employee.active.active.map{|e| e.first_name}.sort 
 		end 
 
 		#test the scope inactive 
@@ -46,23 +46,48 @@ class EmployeeTest < ActiveSupport::TestCase
 		@evan.active = true 
 		@evan.save
 		assert_equal 3, Employee.active.size 
-		assert_equal ['Evan', 'Matthew', 'Chen'], Employee.alphabetical.map{|e| e.first_name}
+		assert_equal ['Evan', 'Matthew', 'Chen'], Employee.inactive.map{|e| e.first_name}
 
 		end
 
-		#test the scope regular
+		#test the scope regulars
 		should 'show that an employee has the role employee' do
 			assert_not_equal 'employee', @matthew.role
 			assert_equal 'employee', @evan.role
 			#add a new employee 
 			@joe = Employee.new
 			@joe.role = 'employee'
+			@joe.save 
 			assert_equal 'employee', @joe.role
 			#assert_equal 2, Employee.role.size
 		end 
 
-		# test the method 'name' works
-    
+		#test the scope managers
+		should 'show that an employee has the role manager' do
+			assert_not_equal 'manager', @matthew.role
+			assert_equal 'manager', @chen.role 
+			#change evan's role to manager 
+			@evan.role = 'manager'
+			@evan.save 
+			assert_equal 'manager', @evan.role
+		end
+
+		#test the scope admins
+		should 'show that an employee has the role admin' do 
+			assert_not_equal 'admin', @chen.role
+			assert_equal 'admin', @matthew.role
+			#change evan's role to manager
+			@evan.role = 'admin'
+			@evan.save
+			assert_equal 'admin', @evan.role
+		end
+
+		#test the scope younger_than_18
+		should 'show that an employee is younger than 18 years' do 
+			assert_equal ['Chen', 'Evan', 'Matthew'], Employee.younger_than_18.map{|o| o.name}
+		end 
+		
+
 
 	end
   
