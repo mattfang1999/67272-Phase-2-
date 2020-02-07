@@ -14,26 +14,26 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-02-04T20:12:34-05:00">2020-02-04T20:12:34-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-02-07T10:29:53-05:00">2020-02-07T10:29:53-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">10.31%</span></span>
+    (<span class="covered_percent"><span class="red">11.22%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.16
+         0.21
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>16</b> files in total.
-    <b>194</b> relevant lines. 
-    <span class="green"><b>20</b> lines covered</span> and
+    <b>196</b> relevant lines. 
+    <span class="green"><b>22</b> lines covered</span> and
     <span class="red"><b>174</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -193,11 +193,11 @@
       <tr>
         <td class="strong"><a href="#353b3ea0b3ca123a5b91fcb608f63454b0cd85f5" class="src_link" title="app/models/employee.rb">app/models/employee.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>21</td>
-        <td>9</td>
-        <td>9</td>
+        <td>34</td>
+        <td>11</td>
+        <td>11</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>2.8</td>
       </tr>
       
       <tr>
@@ -207,7 +207,7 @@
         <td>6</td>
         <td>6</td>
         <td>0</td>
-        <td>2.7</td>
+        <td>1.0</td>
       </tr>
       
     </tbody>
@@ -357,15 +357,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.51
+         1.9
        </span>
     </span> hits/line)
   </h2>
   <a name="Models"></a>
   <div>
     <b>4</b> files in total.
-    <b>20</b> relevant lines. 
-    <span class="green"><b>20</b> lines covered</span> and
+    <b>22</b> relevant lines. 
+    <span class="green"><b>22</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -405,11 +405,11 @@
       <tr>
         <td class="strong"><a href="#353b3ea0b3ca123a5b91fcb608f63454b0cd85f5" class="src_link" title="app/models/employee.rb">app/models/employee.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>21</td>
-        <td>9</td>
-        <td>9</td>
+        <td>34</td>
+        <td>11</td>
+        <td>11</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>2.8</td>
       </tr>
       
       <tr>
@@ -419,7 +419,7 @@
         <td>6</td>
         <td>6</td>
         <td>0</td>
-        <td>2.7</td>
+        <td>1.0</td>
       </tr>
       
     </tbody>
@@ -2458,8 +2458,8 @@
     <h3>app/models/employee.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>9</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
+      <b>11</b> relevant lines. 
+      <span class="green"><b>11</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -2467,10 +2467,10 @@
   <pre>
     <ol>
       
-        <li class="covered" data-hits="1" data-linenumber="1">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="1">
           
-          <code class="ruby">class Employee &lt; ApplicationRecord</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
@@ -2479,115 +2479,193 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="3">
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">	# Relationships</code>
+          <code class="ruby">class Employee &lt; ApplicationRecord</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">	# Relationships</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
           <code class="ruby">  	# -----------------------------</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
           <code class="ruby">  	has_many :assignments</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="6">
+        <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
           <code class="ruby">  	has_many :stores, through: :assignments</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby">  	#Scopes </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby">  	# -----------------------------</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="12">
+          <span class="hits">3</span>
           
           <code class="ruby">  	scope :alphabetical, -&gt; { order(&#39;last_name, first_name&#39;) }</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="5" data-linenumber="13">
+          <span class="hits">5</span>
           
           <code class="ruby">  	scope :active, -&gt; { where(active: true) }</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="5" data-linenumber="14">
+          <span class="hits">5</span>
           
           <code class="ruby">  	scope :inactive, -&gt; { where.not(active: true)}</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="15">
+          <span class="hits">3</span>
           
-          <code class="ruby">  	scope :regulars, -&gt; { where(&#39;role = employee&#39;)}</code>
+          <code class="ruby">  	scope :regulars, -&gt; { where role: &#39;employee&#39;}</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="16">
+          <span class="hits">3</span>
           
-          <code class="ruby">  	scope :managers, -&gt; { where(&#39;role = manager&#39;)}</code>
+          <code class="ruby">  	scope :managers, -&gt; { where role: &#39;manager&#39;}</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="17">
+          <span class="hits">3</span>
           
-          <code class="ruby">  	scope :younger_than_18, -&gt; { where(&#39;Date.today.year - date_of_birth.year &lt; ?&#39;, 18)}</code>
+          <code class="ruby">  	scope :admins, -&gt; { where role: &#39;admin&#39;}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="covered" data-hits="3" data-linenumber="18">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">  	#{ where(&#39;stock_amount &lt; ?&#39;, 100) }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">  	#scope :for_animal,   -&gt;(animal_id) { joins(:animal_medicines).where(&#39;animal_medicines.animal_id = ?&#39;, animal_id) }</code>
+          <code class="ruby">  	scope :younger_than_18, -&gt; { where(&#39;date_of_birth &gt; ?&#39;, 18.years.ago.to_date)}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
           
           
-          <code class="ruby">	</code>
+          <code class="ruby">  								#2/8/2002 vs 2/5/2002</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
           
           
+          <code class="ruby">  								#500 sec elapsed vs 450 sec elapsed</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="21">
+          <span class="hits">3</span>
+          
+          <code class="ruby">  	scope :is_18_or_older, -&gt; { where(&#39;date_of_birth &lt;= ?&#39;, 18.years.ago.to_date)}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">  								#2/5/2002 vs 2/7/2002 (Today)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">  								#less time elapsed </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
           <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby"></code>
@@ -2690,14 +2768,14 @@
           <code class="ruby">  	scope :alphabetical, -&gt; { order(&#39;name&#39;) }</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="14">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
           
           <code class="ruby">  	scope :active, -&gt; { where(active: true) }</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="15">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
           
           <code class="ruby">  	scope :inactive, -&gt; { where.not(active: true)}</code>
         </li>

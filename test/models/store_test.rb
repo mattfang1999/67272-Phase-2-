@@ -35,33 +35,22 @@ class StoreTest < ActiveSupport::TestCase
 		@panda.save 
 		assert_equal 2, Store.active.size 
 		assert_equal ['Target', 'Trader Joes'], Store.active.map{|s| s.name}.sort
-		#make all stores inactive and show there are no active stores
-		@target.active = false
-		@target.save 
-		@trader.active = false 
-		@trader.save 
-		assert_equal [], Store.active.map{|s| s.name}.sort
+		
 		
 	end
 
 		
 		#test the scope 'inactive'
-		should 'shows that there are inactive stores' do 
+		should 'shows that there are two inactive stores' do 
 			#First show there is one inactive store 
 			assert_equal 1, Store.inactive.size 
 			assert_equal ['Walmart'], Store.inactive.map{|s| s.name}.sort 
 			#Next Show there are no inactive stores
-			@walmart.active = true
-			@walmart.save 
-			assert_equal 0, Store.inactive.size 
-			assert_equal [], Store.inactive.map{|s| s.name}.sort 
-			#Next make two of the stores inactive  
-			@panda.active = false
-			@panda.save
-			@walmart.active = false 
-			@walmart.save 
+			@panda.active = false 
+			@panda.save 
 			assert_equal 2, Store.inactive.size 
 			assert_equal ['Panda Supermarket', 'Walmart'], Store.inactive.map{|s| s.name}.sort 
+			 
 		end 
 
 
