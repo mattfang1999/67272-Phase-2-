@@ -23,7 +23,7 @@ class Employee < ApplicationRecord
   								#less time elapsed 
 
   	#own scope
-  	scope :only_older_than_18, -> { where('date_of_birth < ?', 18.years.ago.to_date)}
+  	#scope :only_older_than_18, -> { where('date_of_birth < ?', 18.years.ago.to_date)}
 
 
   
@@ -63,8 +63,9 @@ class Employee < ApplicationRecord
   	
   	def over_18
   		#get an array of all the employees who are over 18 
-  		#if the current employee is in the array, return true, else return faalas e
-  		eighteen_array = Employee.only_older_than_18
+  		#if the current employee is in the array, return true, else return false
+      #is it wrong to call a scope? 
+  		eighteen_array = Employee.is_18_or_older
   		curr_emp = self
   		eighteen_array.include?(curr_emp)
 

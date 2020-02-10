@@ -10,7 +10,7 @@ class Assignment < ApplicationRecord
 
  	#Scopes 
   	# -----------------------------
-  	scope :current, -> { where(end_date: nil) }
+  	scope :current, -> { where('end_date IS NULL') }
   	scope :past, -> { where('end_date IS NOT NULL') }
   	scope :chronological, -> { order('start_date DESC', 'end_date DESC')}
   	# scope :for_store, ->(store_id) {where('store_id = ?', store_id)}
