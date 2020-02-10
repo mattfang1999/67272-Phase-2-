@@ -24,7 +24,7 @@ FactoryBot.define do
   factory :assignment do 
     association :store
     association :employee 
-    start_date Date.current 
+    start_date Date.current.to_date
     end_date nil
   end 
 

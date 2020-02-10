@@ -14,6 +14,12 @@ class Store < ApplicationRecord
   	scope :active, -> { where(active: true) }
   	scope :inactive, -> { where.not(active: true)}
   	#scope :inactive, -> { where.(inactive: true)}
+
+
+  	# Other methods
+
+  	 #'name' -- which returns the employee name as a string "last_name, first_name" in that order
+  	 
   
 
 

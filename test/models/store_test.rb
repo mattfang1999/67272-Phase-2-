@@ -45,13 +45,16 @@ class StoreTest < ActiveSupport::TestCase
 			#First show there is one inactive store 
 			assert_equal 1, Store.inactive.size 
 			assert_equal ['Walmart'], Store.inactive.map{|s| s.name}.sort 
-			#Next Show there are no inactive stores
+			#Next Show there are 2 inactive stores
 			@panda.active = false 
 			@panda.save 
 			assert_equal 2, Store.inactive.size 
 			assert_equal ['Panda Supermarket', 'Walmart'], Store.inactive.map{|s| s.name}.sort 
 			 
-		end 
+		end
+
+
+	
 
 
   end

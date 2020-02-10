@@ -118,7 +118,82 @@ class EmployeeTest < ActiveSupport::TestCase
 			assert_equal ['Chen', 'Eighteen Boy', 'Evan', 'Matthew'], Employee.is_18_or_older.map{|e| e.first_name}.sort
 			
 		end
+
+		should 'show that there are three people who are only older than 18' do
+			assert_equal ['Chen', 'Evan', 'Matthew'], Employee.only_older_than_18.map{|e| e.first_name}.sort
+			#Build a temporary exact 18 year old and ensure he is 18
+			@eighteen = FactoryBot.build(:employee, first_name: 'Eighteen Boy', date_of_birth: 18.years.ago.to_date)
+			@eighteen.save
+			assert_equal ['Chen', 'Evan', 'Matthew'], Employee.only_older_than_18.map{|e| e.first_name}.sort
+			
+		end
+
+
 		
+		#METHOD TESTS#
+		#-----------------------------------------------
+		# test the method 'name' works
+    	should "shows that name method works" do
+    		puts(@matthew.name)
+     		assert_equal "Fang, Matthew", @matthew.name
+      	end 
+
+      	# test the method proper_name
+      	#'proper_name' -- which returns the employee name as a string "first_name last_name" in that order
+      	should "shows that proper_name works" do
+      		puts(@matthew.proper_name)
+      		assert_equal 'Matthew Fang', @matthew.proper_name
+      	end
+
+      	#test 'over_18?' -- which returns a boolean indicating whether this employee is over 18 or not
+      	should 'show that employee is over 18' do
+      		
+      		assert_equal true, @matthew.over_18
+      		assert_equal false, @young.over_18
+      		@eighteen = FactoryBot.build(:employee, first_name: 'Eighteen Boy', date_of_birth: 18.years.ago.to_date)
+			@eighteen.save
+			assert_equal false, @eighteen.over_18
+			
+      	end
+
+      	#test 'age' --which returns the age of the employee
+      	should 'show the age of an employee' do 
+      		assert_equal 20, @matthew.age
+      		assert_equal 16, @young.age
+      		@eighteen = FactoryBot.build(:employee, first_name: 'Eighteen Boy', date_of_birth: 18.years.ago.to_date)
+			@eighteen.save
+      		assert_equal 18, @eighteen.age 
+      		@baby = FactoryBot.build(:employee, first_name: 'Baby Boy', date_of_birth: Date.current.to_date)
+      		assert_equal 0, @baby.age
+      		#Test 0 year olds? 
+      		#Test invalid ages 
+      	end
+
+
+      	#test the method current_assignment
+      	# 'current_assignment' -- which returns the employee's current assignment or nil if the employee does not have a current assignment
+      	should 'show that the current assignment works' do
+      		create_stores
+      		create_assignments
+      		assert_equal @assign_2, @matthew.current_assignment
+      		assert_equal @assign_6, @chen.current_assignment
+      		#make a man with no assignment
+      		@no_assign_man = FactoryBot.build(:employee, first_name: 'Ghost')
+      		assert_nil @no_assign_man.current_assignment
+      		destroy_stores
+      		destroy_assignments
+      		
+      	end
+
+    #   	should "have a method to find the current cost of medicine" do
+    #   create_medicine_costs
+    #   assert_equal 50, @carprofen.current_cost_per_unit
+    #   assert_equal 30, @rabies.current_cost_per_unit
+    #   destroy_medicine_costs
+    #   # test the nil case by creating a new medicine without a cost
+    #   @ghost_med   = FactoryBot.create(:medicine, name: 'Ghost Medicine')
+    #   assert_nil @ghost_med.current_cost_per_unit
+    # end
 
 
 	end
