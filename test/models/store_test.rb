@@ -6,6 +6,47 @@ class StoreTest < ActiveSupport::TestCase
   should have_many(:employees).through(:assignments)
   should have_many(:assignments)
 
+  #Validation Testing
+
+	# Validation macros...
+  	should validate_presence_of(:name)
+  	should validate_presence_of(:street)
+  	should validate_presence_of(:city)
+
+  	# Validating phone...
+  	should allow_value("4122683259").for(:phone)
+  	should allow_value("412-268-3259").for(:phone)
+  	
+  	should_not allow_value("(412) 268-3259").for(:phone)
+  	should_not allow_value("412.268.3259").for(:phone)
+  	should_not allow_value("2683259").for(:phone)
+  	should_not allow_value("4122683259x224").for(:phone)
+  	should_not allow_value("800-EAT-FOOD").for(:phone)
+  	should_not allow_value("412/268/3259").for(:phone)
+  	should_not allow_value("412-2683-259").for(:phone)
+
+  	# Validating zip...
+	should allow_value("12234").for(:zip)
+	should allow_value("23456").for(:zip)
+	should allow_value("00000").for(:zip)
+	  
+	should_not allow_value("fred").for(:zip)
+	should_not allow_value("3431").for(:zip)
+	should_not allow_value("15213-9843").for(:zip)
+	should_not allow_value("15d32").for(:zip)
+
+	 #validating name uniqueness
+
+	# # Validating state...
+  	should allow_value("PA").for(:state)
+  	should allow_value("WV").for(:state)
+  	should allow_value("OH").for(:state)
+  	should_not allow_value("bad").for(:state)
+  	should_not allow_value(10).for(:state)
+  	should_not allow_value("CA").for(:state)
+  	should_not allow_value("Pennsylvania").for(:state)
+
+
   context "Creating stores context" do
   	# create the stores I want witih factories
   	setup do
@@ -17,6 +58,14 @@ class StoreTest < ActiveSupport::TestCase
 		destroy_stores
 	end
 
+
+	# should "validate name uniqueness" do
+
+	# 	@target.name = 'Panda Supermarket'
+	# 	should validate_uniqueness_of(:name)
+
+	# end
+	
 
 
 	# now run the tests:
@@ -53,6 +102,8 @@ class StoreTest < ActiveSupport::TestCase
 			 
 		end
 
+
+	
 
 	
 

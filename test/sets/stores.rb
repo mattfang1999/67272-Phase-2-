@@ -3,7 +3,7 @@ module Contexts
 
     def create_stores
       @panda = FactoryBot.create(:store)
-      @trader = FactoryBot.create(:store, name: "Trader Joes", state: "Ohio")
+      @trader = FactoryBot.create(:store, name: "Trader Joes", state: "OH")
       @walmart = FactoryBot.create(:store, name: "Walmart", active: false)
       @target = FactoryBot.create(:store, name: "Target", phone: "5731231235")
      

@@ -16,6 +16,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
+gem 'validates_timeliness'
+
 
 
 # Use CoffeeScript for .coffee assets and views
@@ -43,11 +45,20 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'simplecov', '0.15.1'
-  gem 'shoulda'
-  gem 'shoulda-matchers'
+  # gem 'simplecov', '0.15.1'
+  # gem 'shoulda'
+  # gem 'shoulda-matchers'
 #gem 'factory_bot'
-  gem 'factory_bot_rails'
+  
+
+   gem 'factory_bot_rails', '4.8.2'
+  gem 'simplecov', '0.15.1'
+  gem 'shoulda', '3.5.0'
+  gem 'shoulda-matchers', '2.8.0'
+  gem 'minitest', '5.10.3'
+  gem 'minitest-rails', '3.0.0'
+  gem 'minitest-reporters', '1.1.19'
+
 
 end
 
@@ -67,7 +78,7 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   # Testing relationships between models 
-  gem 'shoulda-matchers'
+  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

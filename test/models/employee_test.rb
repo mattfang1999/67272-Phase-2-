@@ -6,16 +6,63 @@ class EmployeeTest < ActiveSupport::TestCase
   should have_many(:assignments)
   should have_many(:stores).through(:assignments)
 
+  #Validation Testing
+
+
+	# Validation macros...
+  	should validate_presence_of(:first_name)
+  	should validate_presence_of(:last_name)
+  	should validate_presence_of(:role)
+  	should validate_presence_of(:ssn)
+
+  	# Validating phone...
+  	should allow_value("4122683259").for(:phone)
+  	should allow_value("412-268-3259").for(:phone)
+  	should allow_value("(412) 268-3259").for(:phone) #Why does this pass? 
+  	
+  	
+  	should_not allow_value("412.268.3259").for(:phone)
+  	should_not allow_value("2683259").for(:phone)
+  	should_not allow_value("4122683259x224").for(:phone)
+  	should_not allow_value("800-EAT-FOOD").for(:phone)
+  	should_not allow_value("412/268/3259").for(:phone)
+  	should_not allow_value("412-2683-259").for(:phone)
+
+  	# Validating SSN 
+  	should allow_value("123456789").for(:ssn)
+  	should allow_value("123-45-6789").for(:ssn)
+  	should allow_value("(123) 45-6789").for(:ssn)
+
+  	should_not allow_value("123.45.6789").for(:phone)
+  	should_not allow_value("123456").for(:phone)
+  	should_not allow_value("4122683259x224").for(:phone)
+  	should_not allow_value("800-EAT-FOOD").for(:phone)
+  	should_not allow_value("123/45/6789").for(:phone)
+  	should_not allow_value("123-4567-890").for(:phone)
+
+  	#Validating dob 
+  	should allow_value("1999-07-14").for(:date_of_birth)
+  	should allow_value(Date.today.to_date).for(:date_of_birth)
+
+  	should_not allow_value(1.day.from_now.to_date).for(:date_of_birth) #Why doees this pass? 
+
+
+
+
 	
 	context "Creating employees context" do
 		#create the employees I want with factories
 		setup do
+			create_stores
 			create_employees
+			create_assignments
 		end 
 
 		#and provide a teardown method as well
 	teardown do
+			destroy_assignments
 			destroy_employees
+			destroy_stores
 		end
 
 		# now run the tests:
@@ -148,11 +195,11 @@ class EmployeeTest < ActiveSupport::TestCase
       	#test 'over_18?' -- which returns a boolean indicating whether this employee is over 18 or not
       	should 'show that employee is over 18' do
       		
-      		assert_equal true, @matthew.over_18
-      		assert_equal false, @young.over_18
+      		assert_equal true, @matthew.over_18?
+      		assert_equal false, @young.over_18?
       		@eighteen = FactoryBot.build(:employee, first_name: 'Eighteen Boy', date_of_birth: 18.years.ago.to_date)
 			@eighteen.save
-			assert_equal true, @eighteen.over_18
+			assert_equal true, @eighteen.over_18?
 			
       	end
 
@@ -160,11 +207,30 @@ class EmployeeTest < ActiveSupport::TestCase
       	should 'show the age of an employee' do 
       		assert_equal 20, @matthew.age
       		assert_equal 16, @young.age
-      		@eighteen = FactoryBot.build(:employee, first_name: 'Eighteen Boy', date_of_birth: 18.years.ago.to_date)
+
+      		@new_guy= FactoryBot.build(:employee, first_name: 'New Guy', date_of_birth: '2005-02-25')
+      		@new_guy.save
+      		assert_equal 14, @new_guy.age
+
+      		@new_guy_2= FactoryBot.build(:employee, first_name: 'New Guy 2', date_of_birth: '2005-01-14')
+      		@new_guy_2.save
+      		assert_equal 15, @new_guy_2.age
+
+      		@new_guy_3=FactoryBot.build(:employee, first_name: 'New Guy 3', date_of_birth: '2005-02-11')
+      		@new_guy_3.save
+      		assert_equal 15, @new_guy_2.age
+
+
+
+  
+      		@baby = FactoryBot.build(:employee, first_name: 'Baby Boy', date_of_birth: Date.current.to_date)
+
+      		@baby.save
+      		assert_equal 0, @baby.age
+
+      		@eighteen = FactoryBot.build(:employee, first_name: 'Eighteen Boy', date_of_birth: 18.years.ago)
 			@eighteen.save
       		assert_equal 18, @eighteen.age 
-      		@baby = FactoryBot.build(:employee, first_name: 'Baby Boy', date_of_birth: Date.current.to_date)
-      		assert_equal 0, @baby.age
       		#Test 0 year olds? 
       		#Test invalid ages 
       	end
@@ -173,15 +239,16 @@ class EmployeeTest < ActiveSupport::TestCase
       	#test the method current_assignment
       	# 'current_assignment' -- which returns the employee's current assignment or nil if the employee does not have a current assignment
       	should 'show that the current assignment works' do
-      		create_stores
-      		create_assignments
-      		assert_equal @assign_2, @matthew.current_assignment
-      		assert_equal @assign_6, @chen.current_assignment
+      		# create_stores
+      		# create_assignments
+      		assert_equal [@matt_assign_2], @matthew.current_assignment
+      		assert_equal [@chen_assign_1], @chen.current_assignment
       		#make a man with no assignment
       		@no_assign_man = FactoryBot.build(:employee, first_name: 'Ghost')
+      		@no_assign_man.save
       		assert_nil @no_assign_man.current_assignment
-      		destroy_stores
-      		destroy_assignments
+      		# destroy_assignments
+      		# destroy_stores
       		
       	end
 
